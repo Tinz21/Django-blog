@@ -4,4 +4,7 @@ blog/__pycache__/
 posts/__pycache__/
 posts/api/__pycache__/
 posts/migrations/__pycache__/
+categories/__pycache__/
+categories/api/__pycache__/
+categories/migrations/__pycache__/
 static/
