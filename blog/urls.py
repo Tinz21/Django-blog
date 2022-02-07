@@ -43,4 +43,5 @@ urlpatterns = [
     path('api/posts/', PostView.as_view()),
     path('api/posts/<int:pk>/', PostView2.as_view()),
     path('api/categories/', include(router_category.urls)),
+    path('api/', include('users.api.router')),
 ]
