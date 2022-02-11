@@ -4,9 +4,11 @@ from rest_framework import status
 
 from posts.api.serializers import PostSerializer
 from posts.models import Post
+from posts.api.permissions import IsAdminOrReadOnly
 
 
 class PostView(APIView):
+    permission_classes = [IsAdminOrReadOnly]
     def get(self, request):
         """
         Show all posts
@@ -42,12 +44,13 @@ class PostView(APIView):
 
 
 class PostView2(APIView):
+    permission_classes = [IsAdminOrReadOnly]
     def put(self, request, pk):
         """
-    Update a post
+        Update a post
 
-    This endpoint allows a logged in user to update one of their posts
-    """
+        This endpoint allows a logged in user to update one of their posts
+        """
         serializer = PostSerializer(Post.objects.get(pk=pk), data=request.data)
         if serializer.is_valid():
             serializer.save()
