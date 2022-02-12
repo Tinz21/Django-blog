@@ -21,6 +21,7 @@ from drf_yasg import openapi
 from posts.api.views import PostView
 from posts.api.views import PostView2
 from categories.api.router import router_category
+from comments.api.router import router_comment
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -43,4 +44,6 @@ urlpatterns = [
     path('api/posts/', PostView.as_view()),
     path('api/posts/<int:pk>/', PostView2.as_view()),
     path('api/categories/', include(router_category.urls)),
+    path('api/', include('users.api.router')),
+    path('api/', include(router_comment.urls)),
 ]

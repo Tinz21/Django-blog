@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import SET_NULL
-#from users.models import User
+from users.models import User
 from categories.models import Category
 
 # Create your models here.
@@ -10,5 +10,6 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
-    #user = models.ForeignKey(User, on_delete=SET_NULL, null=True)
+    user = models.ForeignKey(User, on_delete=SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=SET_NULL, null=True)
+    

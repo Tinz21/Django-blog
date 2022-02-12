@@ -5,10 +5,12 @@ from rest_framework.response import Response
 
 from categories.models import Category
 from categories.api.serializers import CategorySerializer
+from categories.api.permissions import IsAdminOrReadOnly
 
 
 class CategoryView(ViewSet):
 
+    permission_classes = [IsAdminOrReadOnly]
     def list(self, request):
         """
         Show all categories
