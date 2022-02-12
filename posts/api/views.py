@@ -9,7 +9,8 @@ from posts.api.permissions import IsAdminOrReadOnly
 
 class PostView(APIView):
     permission_classes = [IsAdminOrReadOnly]
-    def get(self, request):
+
+    def get(self, request): 
         """
         Show all posts
 
